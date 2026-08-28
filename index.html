@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prosa — tecnologia simples para o comércio de Rio Pomba</title>
+<meta name="description" content="Tecnologia simples para o comercio de Rio Pomba e regiao. A gente resolve o que trava o seu dia: atendimento, agenda, estoque, fiado e presenca na internet. A primeira solucao a gente monta sem custo.">
+<meta name="theme-color" content="#2E5C4D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Prosa">
+<meta property="og:title" content="Prosa — tecnologia simples para o comércio">
+<meta property="og:description" content="Tecnologia simples para o comercio de Rio Pomba e regiao. A gente resolve o que trava o seu dia: atendimento, agenda, estoque, fiado e presenca na internet. A primeira solucao a gente monta sem custo.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E5C4D'/%3E%3Cpath d='M7 11a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-5l-4 3.5V19h-1a3 3 0 0 1-3-3z' fill='%23fff'/%3E%3Cpath d='M17.5 14.5a2.5 2.5 0 0 1 2.5-2.5h4a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5v2.2L21.4 20H20a2.5 2.5 0 0 1-2.5-2.5z' fill='%239FCCB9'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E5C4D'/%3E%3Cpath d='M7 11a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-5l-4 3.5V19h-1a3 3 0 0 1-3-3z' fill='%23fff'/%3E%3Cpath d='M17.5 14.5a2.5 2.5 0 0 1 2.5-2.5h4a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5v2.2L21.4 20H20a2.5 2.5 0 0 1-2.5-2.5z' fill='%239FCCB9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Familjen+Grotesk:wght@600;700&display=swap">
+<style>
+/* Tema claro fixo e proposital: leveza acima de sofisticacao. Paleta calma. */
+:root{
+  --paper:#F7F8F6; --card:#FFFFFF; --tint:#EAF0EC;
+  --ink:#1E2B26; --soft:#5F6E67; --line:#E2E7E2;
+  --green:#3E7A66; --green-d:#2E5C4D; --green-l:#D9E8E1;
+  --gold:#B9832F; --gold-l:#F6EEDC;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow:hidden}
+p{margin:0}
+h1,h2,h3{font-family:"Familjen Grotesk","Archivo",sans-serif;font-weight:700;
+  letter-spacing:-.022em;line-height:1.1;text-wrap:balance;margin:0}
+
+.app{display:grid;grid-template-columns:15.5rem 1fr;height:100vh;height:100dvh;overflow:hidden}
+
+/* menu lateral */
+.side{background:var(--green-d);color:#fff;display:flex;flex-direction:column;
+  padding:1.4rem 1rem;gap:.22rem;overflow-y:auto}
+.side .logo{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:1.45rem;
+  letter-spacing:-.03em;padding:0 .55rem .3rem}
+.side .logo b{color:#9FCCB9}
+.side .sub{font-size:.76rem;color:#A8C6BA;padding:0 .55rem 1.25rem;line-height:1.45}
+.mi{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;
+  background:transparent;border:0;color:#D6E7DF;font-family:inherit;font-size:.97rem;
+  font-weight:500;padding:.72rem .55rem;border-radius:7px;cursor:pointer;transition:.14s}
+.mi:hover{background:rgba(255,255,255,.1);color:#fff}
+.mi[aria-current="true"]{background:#fff;color:var(--green-d);font-weight:600}
+.mi:focus-visible{outline:2px solid #9FCCB9;outline-offset:2px}
+.mi .n{width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(255,255,255,.15);
+  display:grid;place-items:center;font-size:.76rem;flex:none;font-weight:600}
+.mi[aria-current="true"] .n{background:var(--green);color:#fff}
+.side .bottom{margin-top:auto;padding-top:1.2rem}
+.side .free{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  color:#EAF3EE;border-radius:8px;padding:.8rem .85rem;font-size:.85rem;line-height:1.4;margin-bottom:.65rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  background:var(--green);color:#fff;text-decoration:none;font-weight:600;
+  padding:.9rem 1.2rem;border:0;border-radius:8px;cursor:pointer;font-family:inherit;
+  font-size:.99rem;transition:.15s}
+.btn:hover{background:#4B8D77}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.btn.inline{width:auto;display:inline-flex;padding:.95rem 1.7rem;font-size:1.02rem}
+.btn.quiet{background:var(--card);color:var(--green-d);border:1px solid var(--line)}
+.btn.quiet:hover{background:var(--tint)}
+
+/* barra de topo e gaveta (so no celular) */
+.appbar{display:none}
+.fechar{display:none}
+.backdrop{display:none}
+@media(max-width:60rem){
+  .app{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .appbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:.65rem .9rem;background:var(--green-d);color:#fff;z-index:20}
+  .appbar .logo{font-size:1.22rem;padding:0}
+  .appbar .agora{font-size:.82rem;color:#A8C6BA;flex:1;text-align:right;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .burger{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:9px;
+    background:rgba(255,255,255,.14);border:0;color:#fff;cursor:pointer;flex:none}
+  .burger:focus-visible{outline:2px solid #9FCCB9;outline-offset:2px}
+  .side{position:fixed;top:0;bottom:0;left:0;width:17.5rem;max-width:84vw;z-index:60;
+    transform:translateX(-100%);transition:transform .26s ease;
+    box-shadow:0 0 44px rgba(0,0,0,.3);padding:1.3rem 1rem}
+  .side.open{transform:none}
+  .fechar{display:grid;place-items:center;position:absolute;top:.85rem;right:.85rem;
+    width:2.2rem;height:2.2rem;border-radius:8px;background:rgba(255,255,255,.14);
+    border:0;color:#fff;cursor:pointer}
+  .fechar:focus-visible{outline:2px solid #9FCCB9;outline-offset:2px}
+  .backdrop{display:block;position:fixed;inset:0;background:rgba(14,26,21,.5);z-index:50;
+    opacity:0;visibility:hidden;transition:opacity .26s ease,visibility .26s;border:0;padding:0}
+  .backdrop.on{opacity:1;visibility:visible}
+  .mi{font-size:1rem;padding:.8rem .6rem}
+}
+
+/* icones */
+.ico{width:1.35rem;height:1.35rem;flex:none;stroke:currentColor;stroke-width:1.6;
+  fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ico.g{width:1.7rem;height:1.7rem}
+
+/* palco */
+.stage{position:relative;overflow:hidden;background:var(--paper)}
+.deco{position:absolute;pointer-events:none;z-index:0}
+.deco.a{top:-9rem;right:-7rem;width:32rem;height:32rem;opacity:.5}
+.deco.b{bottom:-12rem;left:-8rem;width:28rem;height:28rem;opacity:.42}
+.inner{position:relative;z-index:1}
+.panel{position:absolute;inset:0;overflow-y:auto;padding:2.6rem 2.3rem 3rem;
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .26s ease,transform .26s ease,visibility .26s}
+.panel.on{opacity:1;visibility:visible;transform:none}
+@media(max-width:60rem){.panel{padding:1.6rem 1.15rem 2rem}}
+.inner{max-width:60rem;margin-inline:auto}
+.eyebrow{display:inline-block;font-size:.73rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--green-d);background:var(--green-l);
+  padding:.32rem .78rem;border-radius:99px;margin-bottom:1rem}
+h2.big{font-size:clamp(1.7rem,4vw,2.5rem)}
+.lede{margin-top:1.1rem;color:var(--soft);font-size:1.06rem;max-width:40rem}
+
+/* inicio */
+.selo{display:inline-flex;align-items:center;gap:.45rem;background:var(--gold-l);color:var(--gold);
+  border:1px solid #E9DCBF;border-radius:99px;padding:.4rem 1rem;font-size:.88rem;
+  font-weight:600;margin-bottom:1.3rem}
+h1.hero{font-size:clamp(1.95rem,4.8vw,3.25rem);max-width:18ch}
+.sob{margin-top:1rem;font-size:.95rem;color:var(--soft);max-width:38rem}
+.sob b{color:var(--ink);font-weight:600}
+.calma{display:grid;gap:.7rem;grid-template-columns:1fr;margin-top:1.8rem;max-width:44rem}
+@media(min-width:44rem){.calma{grid-template-columns:1fr 1fr;gap:.75rem 1.75rem}}
+.calma div{display:grid;grid-template-columns:1.4rem 1fr;gap:.5rem;align-items:start;font-size:.97rem}
+.calma div::before{content:"✓";color:var(--green);font-weight:700;line-height:1.45}
+.acoes{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.topo{display:grid;gap:2rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:64rem){.topo{grid-template-columns:1.15fr .85fr;gap:3rem}}
+.arte{width:100%;height:auto;max-width:26rem;margin-inline:auto;display:block}
+@media(max-width:64rem){.arte{max-width:20rem;margin-top:.5rem}}
+.passo .cabeca{display:flex;align-items:center;gap:.7rem;margin-bottom:.85rem}
+.passo .bolo{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--green-l);
+  color:var(--green-d);display:grid;place-items:center;flex:none}
+.passo .ordem{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:.8rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.pilares{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1.9rem;max-width:52rem}
+@media(min-width:52rem){.pilares{grid-template-columns:repeat(3,1fr);gap:1.1rem}}
+.pil{background:var(--card);border:1px solid #EDF1EE;border-radius:14px;padding:1.3rem 1.4rem;
+  box-shadow:0 1px 2px rgba(30,43,38,.04),0 6px 18px rgba(30,43,38,.04)}
+.pil b{display:block;font-family:"Familjen Grotesk",sans-serif;font-size:1.05rem;
+  font-weight:700;margin-bottom:.25rem}
+.pil span{color:var(--soft);font-size:.93rem;line-height:1.5}
+
+/* dores */
+.dores{display:grid;gap:1.5rem;grid-template-columns:1fr;margin-top:1.6rem}
+@media(min-width:58rem){.dores{grid-template-columns:19rem 1fr;gap:2.25rem;align-items:start}}
+.dlist{display:grid;gap:.5rem}
+.dbtn{display:flex;align-items:center;gap:.72rem;text-align:left;font-family:inherit;
+  font-size:.96rem;font-weight:500;line-height:1.35;padding:.85rem 1rem;
+  border:1px solid #EDF1EE;background:var(--card);color:var(--ink);
+  border-radius:12px;cursor:pointer;transition:.14s;
+  box-shadow:0 1px 2px rgba(30,43,38,.035)}
+.dbtn .ico{color:var(--green)}
+.dbtn[aria-selected="true"] .ico{color:#fff}
+.dbtn:hover{border-color:var(--green);background:var(--tint)}
+.dbtn[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff;font-weight:600}
+.dbtn:focus-visible{outline:2px solid var(--green-d);outline-offset:2px}
+.dpane{background:var(--card);border:1px solid #EDF1EE;border-radius:16px;padding:2rem 2.1rem;
+  box-shadow:0 1px 2px rgba(30,43,38,.04),0 8px 24px rgba(30,43,38,.05)}
+.dpane .k{font-size:.73rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);
+  font-weight:600;display:block;margin-bottom:.6rem}
+.dpane h3{font-size:1.35rem;margin-bottom:.7rem}
+.dpane > p{color:var(--soft);font-size:.99rem}
+.dpane ul{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.85rem;
+  border-top:1px solid var(--line);padding-top:1.4rem}
+.dpane li{display:grid;grid-template-columns:1.4rem 1fr;gap:.55rem;font-size:.98rem}
+.dpane li::before{content:"→";color:var(--green);font-weight:700}
+.dpane .cta{margin-top:1.6rem}
+
+/* exemplo */
+.tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin:1.3rem 0 1.5rem}
+.tab{font-family:inherit;font-size:.91rem;font-weight:500;padding:.55rem 1rem;border-radius:99px;
+  border:1px solid var(--line);background:var(--card);color:var(--soft);cursor:pointer;transition:.14s}
+.tab:hover{border-color:var(--green);color:var(--green-d)}
+.tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff;font-weight:600}
+.tab:focus-visible{outline:2px solid var(--green-d);outline-offset:2px}
+.seg{display:grid;gap:1.75rem;grid-template-columns:1fr}
+@media(min-width:62rem){.seg{grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:start}}
+.builds{list-style:none;padding:0;margin:.9rem 0 0;display:grid;gap:.95rem}
+.builds li{display:grid;grid-template-columns:1.4rem 1fr;gap:.55rem}
+.builds li::before{content:"→";color:var(--green);font-weight:700}
+.builds b{display:block;font-weight:600}
+.builds span{color:var(--soft);font-size:.95rem}
+
+.phone{background:var(--card);border:1px solid #EDF1EE;border-radius:16px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(30,43,38,.04),0 10px 28px rgba(30,43,38,.06)}
+.phone-top{display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  padding:.72rem .9rem;background:var(--tint);border-bottom:1px solid var(--line)}
+.phone-who{display:flex;align-items:center;gap:.6rem}
+.avatar{width:31px;height:31px;border-radius:50%;background:var(--green);color:#fff;
+  display:grid;place-items:center;font-weight:600;font-size:.84rem;flex:none}
+.phone-name{font-weight:600;font-size:.92rem}
+.phone-sub{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:600}
+.thread{padding:.9rem;display:flex;flex-direction:column;gap:.42rem;min-height:16.5rem}
+.msg{max-width:88%;padding:.58rem .76rem;font-size:.92rem;line-height:1.45;border-radius:12px;
+  opacity:0;transform:translateY(6px);animation:pop .3s ease forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+.msg .t{display:block;font-size:.62rem;margin-top:.3rem;opacity:.6;font-variant-numeric:tabular-nums}
+.msg.them{align-self:flex-start;background:var(--tint);border-bottom-left-radius:3px}
+.msg.us{align-self:flex-end;background:var(--green);color:#fff;border-bottom-right-radius:3px}
+.typing{align-self:flex-start;display:inline-flex;gap:4px;padding:.7rem .78rem;border-radius:12px;background:var(--tint)}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 1.25s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.handoff{margin:.45rem .9rem .9rem;border-left:3px solid var(--gold);background:var(--gold-l);
+  padding:.58rem .78rem;font-size:.88rem;border-radius:0 5px 5px 0;opacity:0;animation:pop .35s ease forwards}
+.replay{display:block;width:100%;background:var(--tint);border:0;border-top:1px solid var(--line);
+  color:var(--green-d);font-family:inherit;font-size:.72rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;padding:.68rem;cursor:pointer}
+.replay:hover{background:var(--green-l)}
+.replay:focus-visible{outline:2px solid var(--green-d);outline-offset:-3px}
+.seg-note{font-size:.82rem;color:var(--soft);margin-top:.7rem}
+
+/* passos */
+.passos{display:grid;gap:1rem;grid-template-columns:1fr;counter-reset:s;margin-top:1.8rem}
+@media(min-width:52rem){.passos{grid-template-columns:repeat(3,1fr);gap:1.25rem}}
+.passo{background:var(--card);border:1px solid #EDF1EE;border-radius:16px;padding:1.7rem;
+  box-shadow:0 1px 2px rgba(30,43,38,.04),0 8px 22px rgba(30,43,38,.05)}
+
+.passo h3{font-size:1.05rem;margin-bottom:.4rem}
+.passo p{color:var(--soft);font-size:.95rem}
+.gratis{display:inline-block;margin-top:.8rem;background:var(--gold-l);color:var(--gold);
+  font-size:.78rem;font-weight:600;padding:.2rem .6rem;border-radius:99px}
+
+/* degustacao */
+.deg{background:var(--card);border:1px solid #EDF1EE;border-radius:16px;padding:2.1rem;
+  max-width:44rem;margin-top:1.6rem;box-shadow:0 1px 2px rgba(30,43,38,.04),0 8px 24px rgba(30,43,38,.05)}
+.deg h3{font-size:1.25rem;margin-bottom:.7rem}
+.deg p{color:var(--soft)}
+.deg ul{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.8rem;
+  border-top:1px solid var(--line);padding-top:1.3rem}
+.deg li{display:grid;grid-template-columns:1.4rem 1fr;gap:.55rem;font-size:.98rem}
+.deg li::before{content:"✓";color:var(--green);font-weight:700}
+.miudo{margin-top:1.5rem;font-size:.9rem;color:var(--soft);max-width:44rem}
+
+/* celular */
+@media(max-width:64rem){
+  .topo{gap:1.25rem}
+  .arte{max-width:16rem;margin:.4rem auto 0}
+}
+@media(max-width:40rem){
+  body{font-size:16px}
+  .panel{padding:1.35rem 1rem 1.75rem}
+  .arte{max-width:13rem}
+  .deco.a{top:-6rem;right:-9rem;width:22rem;height:22rem;opacity:.4}
+  .deco.b{display:none}
+  h1.hero{font-size:1.85rem;max-width:100%}
+  .lede{font-size:1rem}
+  .selo{font-size:.82rem;padding:.35rem .8rem}
+  .pilares{gap:.65rem}
+  .pil{padding:1rem 1.1rem}
+  .dpane{padding:1.4rem 1.25rem;border-radius:14px}
+  .deg{padding:1.4rem 1.25rem}
+  .passo{padding:1.3rem}
+  .btn.inline{width:100%;justify-content:center}
+  .acoes{gap:.6rem}
+  .tabs{gap:.4rem}
+  .tab{font-size:.86rem;padding:.5rem .85rem}
+  .dbtn{padding:.8rem .9rem;font-size:.93rem}
+  .thread{min-height:14rem}
+}
+/* barra de menu no celular nao pode encher a tela */
+@media(max-width:60rem){
+  .side{scrollbar-width:none}
+  .side::-webkit-scrollbar{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;
+    transition-duration:.001s !important}
+  .msg,.handoff{opacity:1;transform:none}
+  .panel{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-chat"><path d="M4 5.5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></g>
+    <g id="i-cal"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8.5 14.5l2 2 4-4"/></g>
+    <g id="i-box"><path d="M12 3.5l8 4v9l-8 4-8-4v-9z"/><path d="M4 7.5l8 4 8-4M12 11.5v9"/></g>
+    <g id="i-caderno"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/><path d="M5 7h3M5 11h3M5 15h3"/></g>
+    <g id="i-pin"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></g>
+    <g id="i-relogio"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.3l3.4 2"/></g>
+    <g id="i-fala"><path d="M4 5.5h16v11H9l-5 4z"/><path d="M9.5 11h.01M12 11h.01M14.5 11h.01"/></g>
+    <g id="i-ferram"><path d="M15.5 4a4.5 4.5 0 0 0-4 6.6L4 18.1 5.9 20l7.5-7.5A4.5 4.5 0 1 0 15.5 4z"/></g>
+    <g id="i-menu"><path d="M4 7h16M4 12h16M4 17h16"/></g>
+    <g id="i-x"><path d="M6 6l12 12M18 6L6 18"/></g>
+    <g id="i-joia"><path d="M7 20V10l4.5-7 .8.5A3 3 0 0 1 13.5 6l-.8 4H19a2 2 0 0 1 2 2.3l-1 6A2 2 0 0 1 18 20z"/><path d="M7 10H4v10h3"/></g>
+  </defs>
+</svg>
+
+<div class="app">
+  <div class="appbar">
+    <div class="logo">Pro<b>sa</b></div>
+    <span class="agora" id="agora">Começa aqui</span>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+
+  <button class="backdrop" id="backdrop" type="button" aria-label="Fechar menu" tabindex="-1"></button>
+
+  <aside class="side" id="menu">
+    <button class="fechar" id="fechar" type="button" aria-label="Fechar menu">
+      <svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+    <div class="logo">Pro<b>sa</b></div>
+    <div class="sub">Rio Pomba e região<br>Minas Gerais</div>
+
+    <button class="mi" data-p="0" aria-current="true"><span class="n">1</span>Começa aqui</button>
+    <button class="mi" data-p="1"><span class="n">2</span>O que a gente resolve</button>
+    <button class="mi" data-p="2"><span class="n">3</span>Veja um exemplo</button>
+    <button class="mi" data-p="3"><span class="n">4</span>Como funciona</button>
+    <button class="mi" data-p="4"><span class="n">5</span>Experimente</button>
+
+    <div class="bottom">
+      <div class="free">A primeira coisa a gente monta de graça, pra você ver funcionando.</div>
+      <a class="btn cta-wpp" href="#">Falar com a gente</a>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <svg class="deco a" viewBox="0 0 200 200" aria-hidden="true"><path fill="#DCE9E2" d="M45 -60C60 -45 72 -25 74 -3c2 22 -6 45 -22 60c-16 15 -40 22 -60 16C-28 67 -44 48 -56 27c-12 -21 -20 -44 -13 -62c7 -18 29 -31 51 -37C4 -78 30 -75 45 -60Z" transform="translate(100 100)"/></svg>
+    <svg class="deco b" viewBox="0 0 200 200" aria-hidden="true"><path fill="#EFE7D6" d="M52 -63C66 -48 74 -24 73 -1c-1 23 -11 46 -28 59c-17 13 -41 16 -63 9C-40 60 -60 43 -68 21c-8 -22 -4 -49 9 -66c13 -17 35 -24 57 -22C20 -65 38 -78 52 -63Z" transform="translate(100 100)"/></svg>
+
+
+    <!-- 1 -->
+    <section class="panel on" data-panel="0">
+      <div class="inner">
+        <div class="topo">
+        <div>
+        <span class="selo">Comece experimentando, sem pagar nada</span>
+        <h1 class="hero">Transforme o seu sonho em realidade.</h1>
+        <p class="lede">Todo dono de negócio tem um plano que não sai do papel — falta tempo, falta gente, falta dinheiro. A gente tira o peso do seu dia com tecnologia simples, pra você atender mais gastando menos.</p>
+
+        <div class="pilares">
+          <div class="pil"><b>Simplifique</b><span>O que hoje toma o seu dia passa a acontecer sozinho, sem você aprender sistema nenhum.</span></div>
+          <div class="pil"><b>Ganhe escala</b><span>Atender o dobro de clientes sem precisar contratar mais ninguém.</span></div>
+          <div class="pil"><b>Gaste menos</b><span>Menos hora perdida, menos venda escapando, menos dinheiro parado na rua.</span></div>
+        </div>
+
+        <p class="lede" style="margin-top:1.6rem">Cada negócio trava num lugar diferente: um perde venda porque ninguém responde a tempo, outro vive com a agenda bagunçada, outro não sabe o que tem no estoque ou não aparece quando procuram na internet. A gente escuta o seu caso e monta a solução — e quase nunca é a mesma coisa.</p>
+        <p class="sob"><b>Sem contrato e sem compromisso.</b> A conversa não custa nada e a primeira coisa a gente monta pra você experimentar antes de decidir qualquer coisa.</p>
+
+        <div class="calma">
+          <div>Você não instala nada, nem no celular nem no computador.</div>
+          <div>Você não precisa aprender a mexer em sistema nenhum.</div>
+          <div>A gente faz tudo daqui. Você não para o seu trabalho.</div>
+          <div>A gente monta, você olha e diz se ficou bom.</div>
+        </div>
+
+        <div class="acoes">
+          <a class="btn inline cta-wpp" href="#">Quero conversar</a>
+          <button class="btn inline quiet ir" data-go="1">Ver o que a gente resolve</button>
+          <button class="btn inline quiet ir" data-go="2">Ver um exemplo</button>
+        </div>
+      </div>
+      <div>
+        <svg class="arte" viewBox="0 0 400 340" role="img" aria-label="Ilustração de uma loja com uma mensagem sendo respondida">
+          <circle cx="205" cy="168" r="150" fill="#E9F1EC"/>
+          <!-- balao de mensagem -->
+          <g>
+            <rect x="232" y="34" width="130" height="74" rx="16" fill="#fff" stroke="#CFE0D7" stroke-width="2"/>
+            <path d="M258 108l-4 22 22-15z" fill="#fff" stroke="#CFE0D7" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="248" y="52" width="70" height="7" rx="3.5" fill="#D9E8E1"/>
+            <rect x="248" y="66" width="52" height="7" rx="3.5" fill="#D9E8E1"/>
+            <circle cx="335" cy="83" r="15" fill="#3E7A66"/>
+            <path d="M329 83.5l4.5 4.5 8-9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <!-- predio -->
+          <rect x="70" y="132" width="196" height="150" rx="8" fill="#fff" stroke="#CFE0D7" stroke-width="2.5"/>
+          <!-- toldo -->
+          <path d="M60 132h216l-14 34H74z" fill="#3E7A66"/>
+          <path d="M92 132l-9 34M124 132l-6 34M156 132l-3 34M188 132v34M220 132l3 34M252 132l6 34" stroke="#EAF3EE" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+          <!-- vitrine -->
+          <rect x="92" y="188" width="74" height="58" rx="6" fill="#EAF0EC" stroke="#CFE0D7" stroke-width="2"/>
+          <path d="M92 217h74M129 188v58" stroke="#CFE0D7" stroke-width="2"/>
+          <!-- porta -->
+          <rect x="188" y="188" width="56" height="94" rx="6" fill="#EAF0EC" stroke="#CFE0D7" stroke-width="2"/>
+          <circle cx="232" cy="238" r="3.5" fill="#3E7A66"/>
+          <!-- placa aberto -->
+          <rect x="196" y="200" width="40" height="17" rx="4" fill="#B9832F"/>
+          <rect x="202" y="207" width="28" height="3.5" rx="1.75" fill="#F6EEDC"/>
+          <!-- chao -->
+          <path d="M44 282h318" stroke="#CFE0D7" stroke-width="3" stroke-linecap="round"/>
+          <!-- vaso -->
+          <path d="M52 282v-16a14 14 0 0 1 28 0v16z" fill="#EFE7D6" stroke="#DFD2B8" stroke-width="2"/>
+          <path d="M66 250c0-12 8-20 18-22-2 12-8 20-18 22zM66 252c0-11-7-18-16-20 2 11 7 18 16 20z" fill="#7FA894"/>
+          <!-- pontinhos -->
+          <circle cx="330" cy="196" r="5" fill="#D9E8E1"/>
+          <circle cx="352" cy="222" r="3.5" fill="#EFE7D6"/>
+          <circle cx="62" cy="96" r="4" fill="#D9E8E1"/>
+        </svg>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="panel" data-panel="1">
+      <div class="inner">
+        <span class="eyebrow">O que a gente resolve</span>
+        <h2 class="big">O que está te incomodando hoje?</h2>
+        <p class="lede">Escolhe o que mais parece com o seu caso. Do lado sai o que a gente faria.</p>
+
+        <div class="dores">
+          <div class="dlist" role="tablist" aria-label="Escolha o problema"></div>
+          <div class="dpane">
+            <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem">
+              <svg class="ico g" id="dI" style="color:var(--green)" aria-hidden="true"><use href="#i-chat"/></svg>
+              <span class="k" id="dK" style="margin:0"></span>
+            </div>
+            <h3 id="dT"></h3>
+            <p id="dP"></p>
+            <ul id="dL"></ul>
+            <div class="cta"><a class="btn inline cta-wpp" href="#">Quero resolver isso</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="panel" data-panel="2">
+      <div class="inner">
+        <span class="eyebrow">Veja um exemplo</span>
+        <h2 class="big">Um caso: o atendimento que não para.</h2>
+        <p class="lede">Este é só um dos problemas que a gente resolve — mas é o mais fácil de mostrar. Escolhe um tipo de negócio e veja como o cliente seria atendido.</p>
+
+        <div class="tabs" role="tablist" aria-label="Tipo de negócio">
+          <button class="tab" role="tab" data-seg="0" aria-selected="false">Dentista e clínica</button>
+          <button class="tab" role="tab" data-seg="1" aria-selected="false">Borracharia e oficina</button>
+          <button class="tab" role="tab" data-seg="2" aria-selected="false">Mercado e mercearia</button>
+          <button class="tab" role="tab" data-seg="3" aria-selected="true">Loja e depósito</button>
+        </div>
+
+        <div class="seg">
+          <div>
+            <div class="phone" id="demo">
+              <div class="phone-top">
+                <div class="phone-who">
+                  <div class="avatar" aria-hidden="true">P</div>
+                  <div>
+                    <div class="phone-name" id="segName"></div>
+                    <div class="phone-sub">respondendo sozinho</div>
+                  </div>
+                </div>
+                <div style="font-size:.75rem;color:var(--soft)" id="segWhen"></div>
+              </div>
+              <div class="thread" id="thread" aria-live="polite" aria-label="Exemplo de conversa"></div>
+              <button class="replay" id="replay" type="button">Ver de novo</button>
+            </div>
+            <p class="seg-note">Demonstração. No seu negócio, ele fala do seu jeito e sobre os seus produtos.</p>
+          </div>
+          <div>
+            <h3 id="segTitle" style="font-size:1.15rem"></h3>
+            <ul class="builds" id="segBuilds"></ul>
+            <a class="btn inline cta-wpp" href="#" style="margin-top:1.4rem">Quero um assim</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="panel" data-panel="3">
+      <div class="inner">
+        <span class="eyebrow">Como funciona</span>
+        <h2 class="big">Três passos. Nenhum dá trabalho pra você.</h2>
+        <div class="passos">
+          <div class="passo">
+            <div class="cabeca"><div class="bolo"><svg class="ico g"><use href="#i-fala"/></svg></div><span class="ordem">Passo 1</span></div>
+            <h3>Você conta o que incomoda</h3>
+            <p>Uma conversa tranquila, pelo próprio WhatsApp ou por chamada de vídeo. Você fala do seu dia a dia, a gente escuta e entende onde aperta.</p>
+            <span class="gratis">Não custa nada</span>
+          </div>
+          <div class="passo">
+            <div class="cabeca"><div class="bolo"><svg class="ico g"><use href="#i-ferram"/></svg></div><span class="ordem">Passo 2</span></div>
+            <h3>A gente monta uma coisa só</h3>
+            <p>A que resolve o seu aperto principal. Fazemos tudo daqui — você não para o trabalho, não recebe ninguém e não compra equipamento.</p>
+            <span class="gratis">Não custa nada</span>
+          </div>
+          <div class="passo">
+            <div class="cabeca"><div class="bolo"><svg class="ico g"><use href="#i-joia"/></svg></div><span class="ordem">Passo 3</span></div>
+            <h3>Você experimenta</h3>
+            <p>Usa no seu negócio de verdade e vê se ajuda. Só depois disso a gente conversa sobre continuar — e sobre valores.</p>
+            <span class="gratis">Não custa nada</span>
+          </div>
+        </div>
+        <p class="miudo">Se ajudou, a gente combina como seguir. Se não ajudou, a gente desliga e fica tudo bem — você não fica devendo nada nem preso a nada.</p>
+        <div style="margin-top:1.6rem"><a class="btn inline cta-wpp" href="#">Começar pelo passo 1</a></div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="panel" data-panel="4">
+      <div class="inner">
+        <span class="eyebrow">Experimente</span>
+        <h2 class="big">Uma degustação, sem compromisso.</h2>
+        <p class="lede">A gente não acredita em vender promessa. Prefere montar uma coisa pequena, botar pra funcionar no seu negócio e deixar você ver com os próprios olhos.</p>
+
+        <div class="deg">
+          <h3>Como é a degustação</h3>
+          <p>Você escolhe o que mais incomoda. A gente monta e coloca pra rodar. Você usa e sente se fez diferença.</p>
+          <ul>
+            <li>A conversa não custa nada</li>
+            <li>A montagem da primeira solução não custa nada</li>
+            <li>Você não assina nada para experimentar</li>
+            <li>Se não servir, a gente desliga e pronto</li>
+          </ul>
+          <div style="margin-top:1.6rem"><a class="btn inline cta-wpp" href="#">Quero experimentar</a></div>
+        </div>
+
+        <p class="miudo">A gente atende poucos negócios por vez, porque faz questão de fazer bem feito. Se demorarmos um pouco pra responder, é por isso.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// ---- trocar aqui quando o numero estiver definido ----
+var WHATSAPP = "5532999999999";
+var SAUDACAO = "Ola! Vi o site da Prosa e queria conversar sobre o meu negocio.";
+var LINK = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(SAUDACAO);
+Array.prototype.forEach.call(document.querySelectorAll(".cta-wpp"), function(a){ a.href = LINK; });
+
+/* paineis */
+var paineis = document.querySelectorAll(".panel");
+var itens = document.querySelectorAll(".mi");
+function abre(i){
+  Array.prototype.forEach.call(paineis, function(p){ p.classList.toggle("on", +p.dataset.panel === i); });
+  Array.prototype.forEach.call(itens, function(b){ b.setAttribute("aria-current", +b.dataset.p === i ? "true" : "false"); });
+  var alvo = document.querySelector('.panel[data-panel="' + i + '"]');
+  if (alvo) alvo.scrollTop = 0;
+  var atv = document.querySelector('.mi[data-p="' + i + '"]');
+  var rot = document.getElementById("agora");
+  if (atv && rot) rot.textContent = atv.textContent.replace(/^\d\s*/, "").trim();
+  if (i === 2) toca(atual < 0 ? 3 : atual);
+}
+var menu = document.getElementById("menu");
+var fundo = document.getElementById("backdrop");
+var burger = document.getElementById("burger");
+var agora = document.getElementById("agora");
+
+function gaveta(mostrar){
+  menu.classList.toggle("open", mostrar);
+  fundo.classList.toggle("on", mostrar);
+  burger.setAttribute("aria-expanded", mostrar ? "true" : "false");
+  fundo.tabIndex = mostrar ? 0 : -1;
+  if (mostrar) { var a = menu.querySelector('.mi[aria-current="true"]'); if (a) a.focus(); }
+  else burger.focus();
+}
+burger.addEventListener("click", function(){ gaveta(!menu.classList.contains("open")); });
+document.getElementById("fechar").addEventListener("click", function(){ gaveta(false); });
+fundo.addEventListener("click", function(){ gaveta(false); });
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape" && menu.classList.contains("open")) gaveta(false);
+});
+
+Array.prototype.forEach.call(itens, function(b){
+  b.addEventListener("click", function(){
+    abre(+b.dataset.p);
+    if (menu.classList.contains("open")) gaveta(false);
+  });
+});
+Array.prototype.forEach.call(document.querySelectorAll(".ir"), function(b){
+  b.addEventListener("click", function(){ abre(+b.dataset.go); });
+});
+
+/* dores */
+var DORES = [
+  { ic:"i-chat", botao:"Cliente manda mensagem e ninguém responde",
+    k:"Atendimento", t:"Ninguém mais fica sem resposta",
+    p:"Um ajudante atende no seu WhatsApp na hora, a qualquer dia e a qualquer hora — inclusive quando você está fechado ou ocupado no balcão.",
+    l:["Responde na hora, tira dúvida e passa preço",
+       "Faz orçamento simples e já anota o pedido",
+       "Chama você só quando é caso que precisa de você"] },
+  { ic:"i-cal", botao:"Minha agenda vive bagunçada e o povo falta",
+    k:"Agenda", t:"Agenda cheia e sem furo",
+    p:"O cliente marca sozinho, sem te ligar e sem esperar você responder. E não esquece do horário.",
+    l:["Cliente escolhe o horário que está livre, sozinho",
+       "Lembrete automático dois dias antes e um dia antes",
+       "Desmarcou? O horário é oferecido pra quem está esperando"] },
+  { ic:"i-box", botao:"Não sei direito o que tem no estoque",
+    k:"Estoque", t:"Saber o que tem, sem planilha",
+    p:"Controle simples de entrada e saída, do jeito que o seu negócio funciona — não do jeito que o sistema quer.",
+    l:["Registro de entrada e saída sem complicação",
+       "Aviso quando um produto está acabando",
+       "Você pergunta e ele responde na hora o que tem"] },
+  { ic:"i-caderno", botao:"Não sei quanto tenho de fiado na rua",
+    k:"Fiado e cobrança", t:"O caderno organizado",
+    p:"Quem deve, quanto e há quanto tempo — sempre à mão, sem depender de caderno que pode sumir.",
+    l:["Tudo anotado, inclusive por áudio, do jeito que der",
+       "Cobrança educada, do jeito que se cobra em cidade pequena",
+       "Aviso antes de virar problema com o cliente"] },
+  { ic:"i-pin", botao:"Meu negócio não aparece quando procuram",
+    k:"Aparecer na internet", t:"Ser achado por quem procura",
+    p:"Muita gente procura no celular antes de sair de casa. Se você não aparece direito, a venda vai pro concorrente.",
+    l:["Uma página simples e rápida, feita pro seu negócio",
+       "Endereço, telefone e horário certos no Google e no mapa",
+       "Fotos e informações organizadas pra quem chega procurando"] },
+  { ic:"i-relogio", botao:"Passo o dia repetindo a mesma coisa",
+    k:"Tempo perdido", t:"Devolver as suas horas",
+    p:"Tarefa repetida é tarefa que dá pra automatizar. Você volta a cuidar do que só você sabe fazer.",
+    l:["O que se repete todo dia passa a acontecer sozinho",
+       "Papelada, planilha e relatório organizados automaticamente",
+       "Resumo do dia chegando pronto no seu WhatsApp"] }
+];
+
+var dlist = document.querySelector(".dlist");
+DORES.forEach(function(d, i){
+  var b = document.createElement("button");
+  b.className = "dbtn"; b.type = "button"; b.setAttribute("role","tab");
+  b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+  b.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#' + d.ic + '"/></svg>';
+  var rot = document.createElement("span"); rot.textContent = d.botao;
+  b.appendChild(rot);
+  b.addEventListener("click", function(){ mostraDor(i); });
+  dlist.appendChild(b);
+});
+function mostraDor(i){
+  var d = DORES[i];
+  document.getElementById("dK").textContent = d.k;
+  document.getElementById("dI").firstElementChild.setAttribute("href", "#" + d.ic);
+  document.getElementById("dT").textContent = d.t;
+  document.getElementById("dP").textContent = d.p;
+  var ul = document.getElementById("dL");
+  ul.innerHTML = "";
+  d.l.forEach(function(x){ var li = document.createElement("li"); li.textContent = x; ul.appendChild(li); });
+  Array.prototype.forEach.call(dlist.children, function(b, k){
+    b.setAttribute("aria-selected", k === i ? "true" : "false");
+  });
+}
+mostraDor(0);
+
+/* exemplo por ramo */
+var SEGS = [
+  { nome:"dentista e clínica", casa:"Clínica Sorriso", quando:"Domingo à noite",
+    builds:[
+      ["Marca a consulta sozinho","O paciente pergunta o preço e sai com horário marcado, mesmo fora do expediente."],
+      ["Lembra o paciente de vir","Avisa dois dias antes e um dia antes. Cai muito a falta e a cadeira não fica vazia."],
+      ["Não deixa orçamento morrer","Quem disse que ia pensar recebe um lembrete gentil depois."]
+    ],
+    chat:[
+      {de:"them",t:"20:12",txt:"Boa noite, vocês fazem clareamento? Quanto fica?"},
+      {de:"us",t:"20:12",txt:"Boa noite! Fazemos sim. Tem o de consultório e o caseiro, acompanhado por 15 dias. O valor a doutora fecha na avaliação, que não é cobrada. Quer que eu veja um horário?"},
+      {de:"them",t:"20:14",txt:"Quero. Tem essa semana à tarde?"},
+      {de:"us",t:"20:14",txt:"Tenho quinta às 14h e sexta às 16h30. Qual fica melhor?"},
+      {de:"them",t:"20:15",txt:"Quinta 14h"},
+      {de:"us",t:"20:15",txt:"Marcado! Vou te lembrar na quarta. Me passa seu nome completo pra deixar a ficha pronta?"}
+    ],
+    fecho:"Consulta marcada num domingo à noite. A recepção só ficou sabendo na segunda de manhã." },
+  { nome:"borracharia e oficina", casa:"Borracharia do Zé", quando:"Madrugada",
+    builds:[
+      ["Atende de madrugada","O cliente manda onde está e já recebe o tempo de chegada. Seu telefone só toca quando é serviço de verdade."],
+      ["Vê o pneu pela foto","O cliente manda a foto da lateral e o ajudante já diz a medida, o preço e se tem em estoque."],
+      ["Lembra da revisão","Rodízio, alinhamento e troca de óleo na hora certa."]
+    ],
+    chat:[
+      {de:"them",t:"02:41",txt:"Furei o pneu na BR perto do trevo, vocês atendem essa hora?"},
+      {de:"us",t:"02:41",txt:"Atendemos sim. Me manda sua localização que eu já aviso o plantão."},
+      {de:"them",t:"02:42",txt:"[localização]"},
+      {de:"us",t:"02:42",txt:"Recebi, você está a 6 km daqui. O Zé já está saindo, chega em uns 15 minutos. Me manda uma foto da lateral do pneu?"},
+      {de:"them",t:"02:44",txt:"[foto]"},
+      {de:"us",t:"02:44",txt:"É 175/70 R14, temos em estoque. Se precisar trocar, ele já leva. Fica no acostamento com o pisca ligado."}
+    ],
+    fecho:"Serviço fechado às 2h44. O Zé saiu de casa já sabendo o lugar e a medida do pneu." },
+  { nome:"mercado e mercearia", casa:"Mercado Bom Preço", quando:"Terça de manhã",
+    builds:[
+      ["Aceita pedido por áudio","A cliente manda um áudio com a lista e o ajudante monta o pedido. Ela não precisa baixar aplicativo nenhum."],
+      ["Faz a soma e marca a entrega","Calcula o total, confirma o endereço e avisa quando sair pra entrega."],
+      ["Lembra de comprar de novo","Quem some há um tempo recebe um alô."]
+    ],
+    chat:[
+      {de:"them",t:"09:20",txt:"[áudio de 12 segundos]"},
+      {de:"us",t:"09:20",txt:"Anotei: 2 kg de arroz, 1 kg de feijão carioca, 1 litro de leite, 1 pão de forma e 1 dúzia de ovos. Confere?"},
+      {de:"them",t:"09:21",txt:"Isso, e põe 2 pacotes de café"},
+      {de:"us",t:"09:21",txt:"Coloquei. Deu R$ 128,40. Entrega hoje até as 17h no mesmo endereço da última vez?"},
+      {de:"them",t:"09:22",txt:"Pode ser"},
+      {de:"us",t:"09:22",txt:"Fechado! Já mandei pra separação. Te aviso quando o entregador sair."}
+    ],
+    fecho:"Pedido de R$ 128 montado por áudio, sem ninguém sair do caixa." },
+  { nome:"loja e depósito", casa:"Depósito São José", quando:"Sábado à noite",
+    builds:[
+      ["Responde preço e se tem","As duas perguntas que mais chegam, respondidas na hora, a qualquer hora do dia."],
+      ["Faz o orçamento","Calcula a quantidade certa, já contando a quebra, e deixa pronto na sua mesa."],
+      ["Chama o cliente de volta","Quem comprou material há meses e sumiu recebe um alô na hora certa."]
+    ],
+    chat:[
+      {de:"them",t:"21:47",txt:"Boa noite! Vocês têm porcelanato 60x60 bege?"},
+      {de:"us",t:"21:47",txt:"Boa noite! Temos sim, no acetinado e no polido, os dois 60x60. É pra qual cômodo?"},
+      {de:"them",t:"21:48",txt:"Sala e cozinha, uns 40 metros"},
+      {de:"us",t:"21:48",txt:"Certo. Pra 40 m² eu já conto 10% de quebra, então dá 44 m². Quer que eu deixe o orçamento das duas opções pronto pro Seu Ronaldo te passar amanhã cedo?"},
+      {de:"them",t:"21:49",txt:"Quero sim"},
+      {de:"us",t:"21:50",txt:"Anotado. Me confirma seu nome e o bairro, pra ver a entrega?"}
+    ],
+    fecho:"Às 8h da manhã o Ronaldo abriu a loja com o orçamento pronto na mesa." }
+];
+
+var thread = document.getElementById("thread");
+var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var timers = [], atual = -1;
+
+function bolha(m){
+  var d = document.createElement("div");
+  d.className = "msg " + m.de;
+  var p = document.createElement("span"); p.textContent = m.txt;
+  var t = document.createElement("span"); t.className = "t"; t.textContent = m.t;
+  d.appendChild(p); d.appendChild(t); thread.appendChild(d);
+}
+function fechoMsg(txt){
+  var h = document.createElement("div");
+  h.className = "handoff"; h.textContent = txt;
+  thread.appendChild(h);
+}
+function toca(i){
+  timers.forEach(clearTimeout); timers = []; thread.innerHTML = "";
+  var seg = SEGS[i], roteiro = seg.chat;
+  if (reduz){ roteiro.forEach(bolha); fechoMsg(seg.fecho); return; }
+  var atraso = 300;
+  roteiro.forEach(function(m, k){
+    var dig = 550 + Math.min(m.txt.length * 18, 1200);
+    timers.push(setTimeout(function(){
+      var ind = document.createElement("div");
+      ind.className = "typing"; ind.innerHTML = "<i></i><i></i><i></i>";
+      thread.appendChild(ind);
+    }, atraso));
+    timers.push(setTimeout(function(){
+      var ind = thread.querySelector(".typing"); if (ind) ind.remove();
+      bolha(m);
+      if (k === roteiro.length - 1)
+        timers.push(setTimeout(function(){ fechoMsg(seg.fecho); }, 600));
+    }, atraso + dig));
+    atraso += dig + 380;
+  });
+}
+function pinta(i){
+  var seg = SEGS[i];
+  atual = i;
+  document.getElementById("segTitle").textContent = "O que ele faz numa " + seg.nome;
+  document.getElementById("segName").textContent = seg.casa;
+  document.getElementById("segWhen").textContent = seg.quando;
+  var ul = document.getElementById("segBuilds");
+  ul.innerHTML = "";
+  seg.builds.forEach(function(b){
+    var li = document.createElement("li"), w = document.createElement("div");
+    var t = document.createElement("b"); t.textContent = b[0];
+    var d = document.createElement("span"); d.textContent = b[1];
+    w.appendChild(t); w.appendChild(d); li.appendChild(w); ul.appendChild(li);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function(b){
+    b.setAttribute("aria-selected", +b.dataset.seg === i ? "true" : "false");
+  });
+  toca(i);
+}
+Array.prototype.forEach.call(document.querySelectorAll(".tab"), function(b){
+  b.addEventListener("click", function(){ pinta(+b.dataset.seg); });
+});
+document.getElementById("replay").addEventListener("click", function(){ toca(atual); });
+pinta(3);
+</script>
+
+</body>
+</html>
