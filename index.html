@@ -133,22 +133,23 @@ h1,h2,h3{font-family:"Familjen Grotesk","Archivo",sans-serif;font-weight:700;
   text-transform:uppercase;color:var(--green-d);background:var(--green-l);
   padding:.32rem .78rem;border-radius:99px;margin-bottom:1rem}
 h2.big{font-size:clamp(1.7rem,4vw,2.5rem)}
-.lede{margin-top:1.1rem;color:var(--soft);font-size:1.06rem;max-width:40rem}
+.lede{margin-top:1rem;color:var(--soft);font-size:1.03rem;max-width:40rem}
 
 /* inicio */
 .selo{display:inline-flex;align-items:center;gap:.45rem;background:var(--gold-l);color:var(--gold);
-  border:1px solid #E9DCBF;border-radius:99px;padding:.4rem 1rem;font-size:.88rem;
-  font-weight:600;margin-bottom:1.3rem}
-h1.hero{font-size:clamp(1.95rem,4.8vw,3.25rem);max-width:18ch}
-.sob{margin-top:1rem;font-size:.95rem;color:var(--soft);max-width:38rem}
+  border:1px solid #E9DCBF;border-radius:99px;padding:.35rem .95rem;font-size:.85rem;
+  font-weight:600;margin-bottom:1.1rem}
+h1.hero{font-size:clamp(1.9rem,4.1vw,2.95rem);max-width:17ch}
+.sob{margin-top:1.1rem;font-size:.93rem;color:var(--soft);max-width:38rem}
 .sob b{color:var(--ink);font-weight:600}
-.calma{display:grid;gap:.7rem;grid-template-columns:1fr;margin-top:1.8rem;max-width:44rem}
-@media(min-width:44rem){.calma{grid-template-columns:1fr 1fr;gap:.75rem 1.75rem}}
-.calma div{display:grid;grid-template-columns:1.4rem 1fr;gap:.5rem;align-items:start;font-size:.97rem}
+.calma{display:grid;gap:.65rem 1.5rem;grid-template-columns:1fr;margin-top:1.6rem}
+@media(min-width:44rem){.calma{grid-template-columns:1fr 1fr}}
+@media(min-width:64rem){.calma{grid-template-columns:repeat(4,1fr)}}
+.calma div{display:grid;grid-template-columns:1.2rem 1fr;gap:.45rem;align-items:start;font-size:.93rem;color:var(--soft)}
 .calma div::before{content:"✓";color:var(--green);font-weight:700;line-height:1.45}
-.acoes{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
-.topo{display:grid;gap:2rem;grid-template-columns:1fr;align-items:center}
-@media(min-width:64rem){.topo{grid-template-columns:1.15fr .85fr;gap:3rem}}
+.acoes{margin-top:1.6rem;display:flex;gap:.7rem;flex-wrap:wrap}
+.topo{display:grid;gap:2rem;grid-template-columns:1fr;align-items:start}
+@media(min-width:64rem){.topo{grid-template-columns:1.08fr .92fr;gap:2.75rem}}
 .arte{width:100%;height:auto;max-width:26rem;margin-inline:auto;display:block}
 @media(max-width:64rem){.arte{max-width:20rem;margin-top:.5rem}}
 .passo .cabeca{display:flex;align-items:center;gap:.7rem;margin-bottom:.85rem}
@@ -156,8 +157,9 @@ h1.hero{font-size:clamp(1.95rem,4.8vw,3.25rem);max-width:18ch}
   color:var(--green-d);display:grid;place-items:center;flex:none}
 .passo .ordem{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:.8rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
-.pilares{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1.9rem;max-width:52rem}
+.pilares{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1.75rem}
 @media(min-width:52rem){.pilares{grid-template-columns:repeat(3,1fr);gap:1.1rem}}
+.pil span{display:block}
 .pil{background:var(--card);border:1px solid #EDF1EE;border-radius:14px;padding:1.3rem 1.4rem;
   box-shadow:0 1px 2px rgba(30,43,38,.04),0 6px 18px rgba(30,43,38,.04)}
 .pil b{display:block;font-family:"Familjen Grotesk",sans-serif;font-size:1.05rem;
@@ -356,35 +358,18 @@ h1.hero{font-size:clamp(1.95rem,4.8vw,3.25rem);max-width:18ch}
     <section class="panel on" data-panel="0">
       <div class="inner">
         <div class="topo">
-        <div>
-        <span class="selo">Comece experimentando, sem pagar nada</span>
-        <h1 class="hero">Transforme o seu sonho em realidade.</h1>
-        <p class="lede">Todo dono de negócio tem um plano que não sai do papel — falta tempo, falta gente, falta dinheiro. A gente tira o peso do seu dia com tecnologia simples, pra você atender mais gastando menos.</p>
-
-        <div class="pilares">
-          <div class="pil"><b>Simplifique</b><span>O que hoje toma o seu dia passa a acontecer sozinho, sem você aprender sistema nenhum.</span></div>
-          <div class="pil"><b>Ganhe escala</b><span>Atender o dobro de clientes sem precisar contratar mais ninguém.</span></div>
-          <div class="pil"><b>Gaste menos</b><span>Menos hora perdida, menos venda escapando, menos dinheiro parado na rua.</span></div>
-        </div>
-
-        <p class="lede" style="margin-top:1.6rem">Cada negócio trava num lugar diferente: um perde venda porque ninguém responde a tempo, outro vive com a agenda bagunçada, outro não sabe o que tem no estoque ou não aparece quando procuram na internet. A gente escuta o seu caso e monta a solução — e quase nunca é a mesma coisa.</p>
-        <p class="sob"><b>Sem contrato e sem compromisso.</b> A conversa não custa nada e a primeira coisa a gente monta pra você experimentar antes de decidir qualquer coisa.</p>
-
-        <div class="calma">
-          <div>Você não instala nada, nem no celular nem no computador.</div>
-          <div>Você não precisa aprender a mexer em sistema nenhum.</div>
-          <div>A gente faz tudo daqui. Você não para o seu trabalho.</div>
-          <div>A gente monta, você olha e diz se ficou bom.</div>
-        </div>
-
-        <div class="acoes">
-          <a class="btn inline cta-wpp" href="#">Quero conversar</a>
-          <button class="btn inline quiet ir" data-go="1">Ver o que a gente resolve</button>
-          <button class="btn inline quiet ir" data-go="2">Ver um exemplo</button>
-        </div>
-      </div>
-      <div>
-        <figure class="foto">
+          <div>
+            <span class="selo">Comece experimentando, sem pagar nada</span>
+            <h1 class="hero">Transforme o seu sonho em realidade.</h1>
+            <p class="lede">Todo dono de negócio tem um plano que não sai do papel — falta tempo, falta gente, falta dinheiro. A gente tira o peso do seu dia com tecnologia simples, pra você atender mais gastando menos.</p>
+            <div class="acoes">
+              <a class="btn inline cta-wpp" href="#">Quero conversar</a>
+              <button class="btn inline quiet ir" data-go="1">O que a gente resolve</button>
+              <button class="btn inline quiet ir" data-go="2">Ver um exemplo</button>
+            </div>
+            <p class="sob"><b>Sem contrato e sem compromisso.</b> A conversa não custa nada, e a primeira solução a gente monta pra você experimentar antes de decidir.</p>
+          </div>
+          <figure class="foto">
           <img src="img/feira-pix.jpg"
                srcset="img/feira-pix-sm.jpg 640w, img/feira-pix.jpg 1100w"
                sizes="(max-width: 64rem) 92vw, 40vw"
@@ -393,7 +378,19 @@ h1.hero{font-size:clamp(1.95rem,4.8vw,3.25rem);max-width:18ch}
           <figcaption><b>Feira em Itajubá, Minas Gerais.</b> O comerciante do interior já se vira com tecnologia — do jeito que dá. A gente ajuda a ir além do papel colado na lona.
           <span class="credito">Foto de Mateus S. Figueiredo, via Wikimedia Commons (CC BY-SA 4.0).</span></figcaption>
         </figure>
-      </div>
+        </div>
+
+        <div class="pilares">
+          <div class="pil"><b>Simplifique</b><span>O que hoje toma o seu dia passa a acontecer sozinho.</span></div>
+          <div class="pil"><b>Ganhe escala</b><span>Atenda o dobro de clientes sem contratar mais ninguém.</span></div>
+          <div class="pil"><b>Gaste menos</b><span>Menos hora perdida, menos venda escapando pela porta.</span></div>
+        </div>
+
+        <div class="calma">
+          <div>Você não instala nada</div>
+          <div>Não precisa aprender sistema</div>
+          <div>A gente faz tudo remoto</div>
+          <div>Você não para o seu trabalho</div>
         </div>
       </div>
     </section>
