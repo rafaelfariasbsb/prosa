@@ -61,6 +61,8 @@ h1,h2,h3{font-family:"Familjen Grotesk","Archivo",sans-serif;font-weight:700;
 .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .btn.inline{width:auto;display:inline-flex;padding:.95rem 1.7rem;font-size:1.02rem}
 .btn.quiet{background:var(--card);color:var(--green-d);border:1px solid var(--line)}
+.btn.menor{padding:.72rem 1.15rem;font-size:.93rem}
+@media(max-width:40rem){.btn.menor{padding:.85rem 1.15rem;font-size:1rem}}
 .btn.quiet:hover{background:var(--tint)}
 
 /* barra de topo e gaveta (so no celular) */
@@ -364,8 +366,8 @@ h1.hero{font-size:clamp(1.9rem,4.1vw,2.95rem);max-width:17ch}
             <p class="lede">Todo dono de negócio tem um plano que não sai do papel — falta tempo, falta gente, falta dinheiro. A gente tira o peso do seu dia com tecnologia simples, pra você atender mais gastando menos.</p>
             <div class="acoes">
               <a class="btn inline cta-wpp" href="#">Quero conversar</a>
-              <button class="btn inline quiet ir" data-go="1">O que a gente resolve</button>
-              <button class="btn inline quiet ir" data-go="2">Ver um exemplo</button>
+              <button class="btn inline quiet menor ir" data-go="1">O que resolvemos</button>
+              <button class="btn inline quiet menor ir" data-go="2">Ver exemplo</button>
             </div>
             <p class="sob"><b>Sem contrato e sem compromisso.</b> A conversa não custa nada, e a primeira solução a gente monta pra você experimentar antes de decidir.</p>
           </div>
